@@ -6,13 +6,22 @@ export const useGameState = () => useContext(GameStateContext);
 
 export const GameStateProvider = ({ children }) => {
   const [difficulty, setDifficulty] = useState('normal');
-  const [attempts, setAttempts] = useState(6); // 默认为普通模式的尝试次数
+  const [attempts, setAttempts] = useState(6);
+  const [currentGuesses, setCurrentGuesses] = useState([]);
+  const [gameRulesVisible, setGameRulesVisible] = useState(false); 
+  const [gameResult, setGameResult] = useState(null); 
 
   const value = {
     difficulty,
     setDifficulty,
     attempts,
-    setAttempts
+    setAttempts,
+    currentGuesses,
+    setCurrentGuesses,
+    gameRulesVisible,
+    setGameRulesVisible,
+    gameResult, 
+    setGameResult,
   };
 
   return (
